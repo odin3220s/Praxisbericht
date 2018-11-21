@@ -1,0 +1,8 @@
+\contentsline {chapter}{Inhaltsverzeichnis}{1}
+\contentsline {chapter}{Abbildungsverzeichnis}{2}
+\contentsline {chapter}{Tabellenverzeichnis}{3}
+\contentsline {chapter}{Codebeispielverzeichnis}{4}
+\contentsline {chapter}{Abk\"urzungsverzeichnis}{5}
+\contentsline {chapter}{\numberline {1}Einleitung}{6}
+\contentsline {section}{\numberline {1.1}Vorstellung des Kontextes der Arbeit}{6}
+\contentsline {chapter}{Literaturverzeichnis}{7}

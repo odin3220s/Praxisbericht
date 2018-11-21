@@ -1,0 +1,719 @@
+% ===========================================================
+% ===========================================================
+% == LaTeX-Vorlage fuer Praxisbericht Fak. EIT HS Coburg ====
+% ===========================================================
+% ===========================================================
+% ===========================================================
+% ===========================================================
+\documentclass[a4paper,12pt,onesided]{report}
+
+% ===========================================================
+% == Definitionen fuer die Formatierung =====================
+% == aus anderer Datei einbinende ===========================
+% ===========================================================
+\input{richtlinien_Praxisbericht_macros.tex}
+
+% ===========================================================
+% == Definitionen fuers Glossar muessen vor Dokumentbeginn ==
+% ===========================================================
+\newglossaryentry{Artefakt}
+{
+  name=Artefakt,
+  description={``(bildungssprachlich) etwas von Menschenhand
+    Geschaffenes, ... (Elektronik) Störsignal'' \cite{duden}; in dieser Arbeit synonym zu Erzeugnis verwendet}
+}
+
+\newglossaryentry{Monographie}
+{
+  name=Monographie,
+  description={``Einzelschriften, welche sich thematisch abgeschlossen mit einem einzigen Gegenstand beschäftigen. Im Gegensatz hierzu thematisieren Sam-
+    melbände mehrere Gegenstände aus einem einzelnen
+    Themengebiet''~\cite[S.~199]{Balzert}}
+}
+
+
+% ===========================================================
+% == Hier beginnt alles was im Dokument erscheint ===========
+% ===========================================================
+\begin{document}
+
+% ===========================================================
+% == Titelseite =============================================
+% ===========================================================
+\begin{titlepage}
+  \centering
+  \includegraphics[width=14.9cm]{logo}\\
+  \fontsize{18}{20}\selectfont Hochschule für angewandte Wissenschaften Coburg\\[.1cm]
+  Fakultät Elektrotechnik und Informatik\\[.8cm]%
+  Studiengang: Automatisierung und Robotik, Elektro- und\\%
+  Informationstechnik (Bc, Msc), Erneuerbare Energien,\\%
+  Informatik (Bc, Msc)\\[.4cm]
+  
+  \textls[35]% Increased letter spacing
+  { \fontsize{22}{40}\selectfont\bfseries Richtlinien zum wissenschaftlichen Arbeiten \\[0.4cm]%
+    Praxisbericht, Bachelorarbeit, Masterarbeit}\\[1cm]
+  Volkhard Pfeiffer\\
+  Peter Schwarz\\
+  Jürgen Terpin\\
+  Alexander Wiebel\\
+  Thomas Wieland\\
+  Dieter Wi{\ss}mann\\
+  \ \\
+  \fontsize{16}{18}\selectfont
+  \today\\
+  \LaTeX-Vorlage basierend auf Version 2.1 der MS-Word-Vorlage.\\
+  {
+    \color{red}
+    \underline{\bfseries Definitv gültig ist immer die aktuellste MS-Word-Vorlage}\\
+    \underline{\bfseries mit den dort beschriebenen Bestimmungen.}\\
+    \underline{\bfseries Diese \LaTeX-Vorlage dient nur als Formatierungshilfe.}
+  }
+\end{titlepage}
+
+% ===========================================================
+% == Inhaltsverzeichnis =====================================
+% ===========================================================
+{
+  \setlength{\cftbeforechapskip}{-.5ex}
+  \tableofcontents
+  \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+}
+
+% ===========================================================
+% == Abbildungsverzeichnis ==================================
+% ===========================================================
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+% ===========================================================
+% == Tabellenverzeichnis ====================================
+% ===========================================================
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+% ===========================================================
+% == Codeverzeichnis ========================================
+% ===========================================================
+\newpage
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Codebeispielverzeichnis}
+
+
+% ===========================================================
+% == Symbolverzeichnis ======================================
+% ===========================================================
+\newpage
+\section*{Symbolverzeichnis}
+\addcontentsline{toc}{chapter}{Symbolverzeichnis}
+\begin{tabular}{|l|l|l|}
+  \hline
+  \rowcolor{gray}
+  \bf Symbol&\bf Bedeutung&\bf [phys. Einheit]\\\hline
+  $a_\nu$&cos-Foruierkoeffizient der $\nu$-ten Harmonischen&[V]\\\hline
+  $b_\nu$&sin-Foruierkoeffizient der $\nu$-ten Harmonischen&[V]\\\hline
+  $i$&ganzzahlige Laufvariable&\\\hline
+  $n$&Umfang der Messreihe oder Stichprobe&\\\hline
+  $u(t)$&Signalspannungsverlauf&[V]\\\hline
+  $s$&empirische Standardabweichung&[m]\\\hline
+  $T$&Periodendauer&[s]\\\hline
+  $\bar{x}$&Mittelwert der Stichprobe&[m]\\\hline
+  $x_i$&Einzelmesswert&[m]\\\hline
+  $\nu$&ganzzahlige Laufvariable&\\\hline
+  $\omega_l$&Kreisfrequenz der Grundschwingung&[rad/sec]\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+  &&\\\hline
+\end{tabular}
+
+
+% ===========================================================
+% == Abkuerzungsverzeichnis =================================
+% ===========================================================
+\newpage
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\begin{tabular}{ll}
+  BDSG& Bundesdatenschutzgesetz\\
+  CAD& Computer-Aided Design\\
+  FBML& Facebook Markup Language\\
+  HTML& Hyper Text Markup Language\\
+  o. V.& ohne Verfasser\\
+  ROI& Return on Investment\\
+  \ldots& \ldots
+\end{tabular}
+
+
+% ===========================================================
+% == Hier beginnt der eigentliche Text ======================
+% ===========================================================
+\newpage
+\chapter{Einleitung}
+
+  {
+    \color{red}
+    \underline{\bfseries Definitv gültig ist immer die aktuellste
+      MS-Word-Vorlage mit den dort beschriebenen }\\
+    \underline{\bfseries Bestimmungen. Diese \LaTeX-Vorlage dient nur als
+      Formatierungshilfe.  Sie enthält bei weitem }\\
+    \underline{\bfseries nicht den kompletten
+      Inhalt der MS-Word-Vorlage und teilweise veraltete Informationen.}\\
+    
+    \underline{\bfseries Das Format der \LaTeX-Vorlage ist allerdings
+      weitesgehend auf dem aktuellen Stand.\\}
+  }
+\ \\
+\ \\
+{
+\color{gray} 
+% ===========================================================
+% == Kommentare zu diese Vorlage ============================
+% ===========================================================
+%
+Minimale Unterschiede zu vorgeschriebenen Grö{\ss}en
+\begin{itemize}
+\item Abstand Kopf/Fußzeile zu Rand
+\end{itemize}
+Differenzen zur Wordvorlage bei Formatierungen, die nicht im Text vorgeschrieben sind
+\begin{itemize}
+\item Abstand Sections im Inhaltsverzeichnis
+\item Zeilenabstände in Tabellen
+\item Header $\rightarrow$ ``Kapitel ...'
+\item Namen in Abbildungsverzeichnis, Tabellenverzeichnis, Codebeispielverzeichnis
+\item Einrückung der Absätze
+\item Vertikaler Abstand nach Kapitelüberschrift
+\item Horizontaler Abstand nach Kapitelnummer in
+\item Rahmen um Abbildungen
+\item Vertikaler Item-Abstand
+\item Horizontaler Itemabstand
+\item Abstand vor itemize
+\end{itemize}
+}
+\ \\
+Die MS-Word-Variante dieses Dokuments legt die Richtlinien zur
+Erstellung der Praxisberichte, Master- und Bachelorarbeiten fest. {\em
+  Die Arebeiten werden nach diesen Richtlinien bewertet.}
+
+Das Original-Dokument gliedert sich in drei Kapitel: Kapitel~\ref{sec:formal} beschreibt die formalen Richtlinien, die dem Praxisbericht zugrunde gelegt werden. Viele Richtlinien werden durch entsprechende Word/Latex Formatvorlagen - sofern technisch möglich - unterstützt. Für andere Textverar-beitungsprogramme sind diese Vorlagen ggf. selbst zu erstellen. Kapitel~\ref{sec:zitieren} bespricht ausgewählte Aspekte des wissenschaftlichen Arbeitens (z.~B. Zitierregeln, Aufbau Literaturverzeichnis) und legt die damit verbundenen wissenschaftlichen Formate und Regeln verbindlich für den Praxisbericht fest. Kapitel~\ref{sec:inhalt} geht auf wichtige inhaltliche Kriterien und Regeln zum Aufbau Ihrer Arbeit ein. 
+
+Vom Leser werden grundlegende Kenntnisse zum wissenschaftlichen
+Arbeiten {\em vorausgesetzt}. Obgleich in diesem Dokument einzelne Elemente  (wie z.~B. die Zitatarten) wiederholt wer-den, wird auf weitergehende Details und Begriffe (z.~B. Paraphrasieren, der Unterschied von Primär- und Sekundär-Literaturquelle, wissenschaftlicher Schreibstil, einheitliche Begriffsde-finitionen) nicht eingegangen. Falls solche Kenntnisse nicht oder nur teilweise vorhanden sind, sind diese in der einschlägigen Literatur nachzulesen z.~B. in~\cite{Balzert}.
+\ \\
+\ \\
+{\em Wichtiger Hinweis:\\
+  Falls einzelne Teile aus der Literatur oder dem
+  Internet abgeschrieben und nicht ordnungsgemäß als direkte Zitate
+  gekennzeichnet sind, wird dies als Plagiatsversuch gewertet und die Arbeit/das
+  Praxisseminar gilt automatisch als nicht bestanden!}
+
+\newpage
+\chapter{Formale Richtlinien}
+{ \color{red}\bfseries Nochmaliger Hinweis: Bindend und allumfassend sind die Vorgaben in der MS-Word-Vorlage.}
+\label{sec:formal}
+\begin{table}[h]
+  \begin{tabular}{|l|l|}
+    \hline
+    Einband&...\\
+    &...\\\hline
+    Umfang& ...\\
+    & ...\\
+    &...\\\hline
+    ...&...\\\hline
+    ...&...\\\hline
+  \end{tabular}
+  \caption{Umfang und äußere Form der Arbeit}
+\end{table}
+
+
+\section{Abgabeform}
+{ \color{red}\bfseries Nochmaliger Hinweis: Bindend und allumfassend sind die Vorgaben in der MS-Word-Vorlage.}
+Folgende \gls{Artefakt}e sind {\em zeitgleich} abzugeben. Die
+Bewertung der Arbeit erfolgt nur {\em bei Vorliegen beider Teile}.
+\begin{table}[h]
+  \begin{tabular}{|l|l|}
+    \hline
+    Papierform&  1 Exemplar beim Praxisbeauftragten abgeben\hfill\\\hline
+    pdf-Version des Berichts& im entsprechenden Moodle Kurs\\\hline
+  \end{tabular}
+  \caption{Abzugebende Artefakte}
+\end{table}
+
+
+\section{Titelblatt}
+{ \color{red}\bfseries Nochmaliger Hinweis: Bindend und allumfassend sind die Vorgaben in der MS-Word-Vorlage.}
+\label{sec:titelblatt}
+\begin{table}[H]
+  \begin{tabular}{|l|l|}
+    \hline
+    Deutschsprachig&Es ist das vorgegebene deutschsprachige Deckblatt mit Logo\\
+    &deutsch zu verwenden: s. Anhang A 3\\\hline
+    Englischsprachig&Es ist das vorgegebene deutschsprachige Deckblatt mit Logo\\
+    &englisch zu verwenden: s. Anhang A 4\\\hline
+    Seitennummerierung&Das Titelblatt hat die Seitennummer 1. Diese wird jedoch auf\\
+    &dem Titelblatt nicht angezeigt\\\hline
+  \end{tabular}
+  \caption{Titelblatt Vorgabe}
+\end{table}
+\section{Verzeichnisse und Anhang}
+\label{sec:VerzAnhang}
+Diesen Abschnitt bitte in der MS-Word-Vorlage nachschlagen.
+\section{Gliederungssystematik}
+Diesen Abschnitt bitte in der MS-Word-Vorlage nachschlagen.
+\section{Abbildungen}
+Alle Abbildungen müssen in allen Teilen gut lesbar sein. Grafiken sind möglichst selbst zu
+erstellen (vorteilhaft an selbsterstellten Grafiken ist die hohe Qualität der Wiedergabe und die
+Einheitlichkeit von Schrift, Symbolen, Beschriftungen etc.).
+Abbildung~\ref{fig:circle} wurde mit einer {\tt figure}-Umgebung angelegt.
+\begin{figure}[h]
+  \centering
+  \includegraphics{circle}
+  \caption{Dieser Text wird in \LaTeX\ durch den Befehl {\tt caption}
+    erzeugt. Bildquelle: \cite[S.~478]{Boenigk}\label{fig:circle}}
+\end{figure}\\
+Bei der Erstellung von Grafiken können auch Schriftarten ohne Serifen, z.~B. Arial oder
+Calibri, verwendet werden. Die verwendete Schriftart muss jedoch über alle selbst erstellten
+Grafiken gleich sein.
+
+
+\section{Programmcode und Codebeispiele}
+Programmcode, wie z.~B. {\tt public static void main(String[] args)}, ist im
+Text mit anderem Standard-Font zu formatieren (Details s. Anhang~\ref{app:format}). Bei einer Vielzahl
+von Codebeispielen werden diese nach demselben Schema wie Abbildungen und Tabellen
+durchnummeriert und mit Unterschriften versehen. Umfangreichere Codebeispiele gehören in
+den Anhang. Codebeispiele werden gemäß der jeweiligen Programmiersprachen-Konvention
+entsprechend {\em eingerückt}.
+\lstset{caption=Closure Syntax in Java,captionpos=b}
+\begin{lstlisting}
+  public interface NatFunction {
+    public int exec(int n);
+  }
+  public static void main(String[] args) {
+    final int y = 7;
+    //Lambda Ausdruck als Closure
+    NatFunction multiplyByOuter = i -> i *y;
+    System.out.println(multiplyByOuter.exec(4)); //28
+  }
+\end{lstlisting}
+\lstset{caption=Nochmal das selbe um zu zeigen wie man Captions für
+  beide Codekästen vergibt.,captionpos=b}
+\begin{lstlisting}
+  public interface NatFunction {
+    public int exec(int n);
+  }
+  public static void main(String[] args) {
+    final int y = 7;
+    //Lambda Ausdruck als Closure
+    NatFunction multiplyByOuter = i -> i *y;
+    System.out.println(multiplyByOuter.exec(4)); //28
+  }
+\end{lstlisting}
+
+
+
+\section{Formeln und Gleichungen}
+Müssen in einem Praxisbericht Formeln oder Gleichungen angegeben werden, so sind diese
+mit einem geeigneten Formeleditor zu erstellen. In Worddokumenten kann
+dies mit dem integrierten Formeleditor oder als eingefügtes Objekt mit
+dem MS Formel-Editor erfolgen. In \LaTeX\ sind Formeln im Code in
+bestimmten Umgebungen zu erstellen. Z.B.:
+
+Die statistischen Kenngrößen Mittelwert $\bar{x}$ und empirische Standardabweichung $s$ einer normalverteilten Stichprobe vom Umfang $n$ berechnen sich folglich zu
+\begin{align}
+  \bar{x}&=\frac{1}{n}\sum_{i=1}^{n}x_i\\
+  s&=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2}
+\end{align}
+
+
+Oder:
+Die Koeffizienten $a_v$ und $b_v$ der Fourierreihe erhält man gemäß~\cite{}
+aus den Gln. (\ref{eqn:anu}) und (\ref{eqn:bnu})
+\begin{subequations}
+  \begin{align}
+    a_\nu&=\frac{2}{T}\int\limits_0^Tu(t)\cos(\nu\omega_lt)dt=\frac{2}{T}\int\limits_0^{\frac{T}{2}}(u(t)+u(-t))\cos(\nu\omega_lt)dt\label{eqn:anu}\\
+    b_\nu&=\frac{2}{T}\int_0^Tu(t)\sin(\nu\omega_lt)dt=\frac{2}{T}\int\limits_0^{\frac{T}{2}}(u(t)+u(-t))\sin(\nu\omega_lt)dt\label{eqn:bnu}
+  \end{align}
+\end{subequations}
+
+Die Darstellung der Gleichung beginnt in einer neuen Zeile und wird eine Tabulatorposition
+vom linken Rand eingerückt. Rechtsbündig in der gleichen Zeile steht eine Gleichungsnum-
+mer, die aus der Kapitelnummer und einer durch Punkt abgetrennten fortlaufenden Nummer
+zusammengesetzt ist. Bei eng zusammen gehörenden Gleichungen (s. Beispiel) kann eine
+weitere Abgrenzung durch Kleinbuchstaben erfolgen.
+Werden Gleichungen aus der Literatur entnommen, so ist in unmittelbarem Zusammenhang
+mit der Gleichung eine Quellenangabe einzufügen. Es ist streng darauf zu achten, dass alle in
+einer Formel verwendeten Symbole im Symbolverzeichnis zusammen mit ihrer physikali-
+schen Einheit erläutert werden.
+
+\section{Tabellen}
+Tabellen sind {\em einheitlich} zu formatieren. Titelzellen der Zeilen und Spalten werden grau
+schattiert (15\%). Times New Roman bildet wiederum die Standardschriftart mit der Größe
+von 12 pt (Zeilenabstand innerhalb der Tabelle vor: 3 pt; nach: 3 pt). In Abhängigkeit vom
+Tabellenumfang muss ggf. eine kleinere Schriftgröße (mindestens aber 10 pt) gewählt wer-
+den.
+
+\begin{table}[H]
+  \begin{tabular}{|l|l|l|}
+    \hline
+    \rowcolor{gray}
+    \bf Themenschwerpunkte/Begriffe&\bf Ausgewählte Autoren&\bf Fokus der Autoren\\\hline
+    Migrations-Analyse& Sauerbrey/Henning 2000&Wissenschaft\\\hline
+    \ldots&&\\\hline
+    \ldots&&\\\hline
+  \end{tabular}
+  \caption[Verwendete Begriffe im Bereich Kündigungsprävention]{ Verwendete Begriffe im Bereich Kündigungsprävention. Quelle: [Boenigk2011, S.~478]
+  }
+\end{table}
+
+\section{Vordefinierte Word-Vorlagen}
+Dieses Kapitel fehlt im Vergleich zur MS-Word-Vorlage, da es die
+Vorlagen hier in \LaTeX\ offensichtlich nicht gibt.
+
+\newpage
+\chapter{Zitieren}
+\label{sec:zitieren}
+Ein elementarer Bestandteil einer wissenschaftlichen Arbeit ist die richtige Zitierung. Dabei
+muss präzise dargelegt werden, auf wessen Aussage sich der Autor beruft und woher sie
+stammt.
+
+\section{Zitatformen}
+Um die Aussagen anderer Autoren in die Arbeit zu integrieren, kann entweder sinngemäß oder wörtlich zitiert werden.
+
+\subsection{Wörtliche Zitate}
+Wörtliche Zitate sind nur dann zweckmäßig, wenn der genaue Wortlaut wichtig ist oder der
+Autor besonders treffend formuliert hat. Wörtliche Zitate werden durch Anführungszeichen
+begonnen und beendet. Zitate und Quellenangaben erfordern grundsätzlich buchstäbliche Genauigkeit. Hinzufügungen zum Original sind deshalb durch rund eingeklammerte Zusätze mit
+einem eckig eingeklammerten Hinweis, z.~B. [Anm. d. Verf.], deutlich zu kennzeichnen. Die
+Auslassung eines oder mehrerer Worte wird durch drei Punkte gekennzeichnet.
+
+Beispiel: ``Text des wörtlichen Zitates (gemeint ist hier ... [Anm. d. Verf.]) weiterer Text des
+Zitates'' ...
+
+Wörtliche Zitate müssen ohne Abweichung vom Original übernommen werden, d. h. auch
+evtl. veraltete Schreibweisen, fehlerhafte Orthografie und Zeichensetzung sind wiederzuge-
+ben. Falls das Zitat einen Fehler aufweist, sollte darauf an passender Stelle mit ``(sic!)'' hinge-
+wiesen werden. Die Interpunktion am Zitatende darf nicht übernommen werden, wenn diese
+im laufenden Text nicht korrekt ist. Zitate in einem Zitat werden am Anfang und am Ende mit
+einem Apostroph ('...') versehen. Zitate aus englischen Quellen müssen in der Regel nicht
+übersetzt werden. Zitate in einer anderen Fremdsprache erfordern eine Übersetzung unter Angabe des Übersetzers.
+
+Ein wörtliches Zitat soll im Allgemeinen nicht mehr als zwei bis drei Sätze umfassen. Er-
+scheinen längere Zitate unvermeidlich, so sind diese im Text einzurücken und in einzeiligem
+Abstand zu schreiben. Grundsätzlich ist nach dem Originaltext zu zitieren; nur wenn das Originalwerk nicht zugänglich ist, kann nach einer Quellenangabe in der Sekundärliteratur zitiert
+werden. Der Quellenhinweis gibt in diesem Fall mit dem Hinweis ``..., zit. nach ...'' auch die
+Sekundärliteratur an. Sowohl die Primär- als auch die Sekundärquellen sind ins Literaturverzeichnis aufzunehmen.
+
+\subsection{Sinngemäße Zitate}
+Ein sinngemäßes Zitat liegt bei der Übernahme von Gedanken anderer oder bei Anlehnung an
+andere Autoren vor. Es handelt sich hier also nicht um die wörtliche Wiedergabe eines Tex-
+tes. Der Umfang einer sinngemäßen Übernahme muss eindeutig erkennbar sein. Es kann des-
+halb erforderlich sein, dem sinngemäßen Zitat einen einleitenden Satz voranzustellen, wie
+z.~B.: Die folgende Darstellung lehnt sich an~\cite[S.~27]{Hippner} an. Mit der namentlichen
+Nennung des Autors erübrigt sich auch der nochmalige Quellenverweis am Ende des Ab-
+schnittes.
+
+
+\section{Zitierweise}
+\begin{figure}
+  \centering
+  \includegraphics{tree}
+  \caption{Mehrere Syntaxbäume für den Ausdruck {\tt
+      1*2+3}. Bildquelle: \cite[S.~185]{voelter}}
+\end{figure}
+Diesen Abschnitt bitte in der MS-Word-Vorlage nachschlagen.
+
+\section{Literaturverzeichnis}
+\label{sec:litVerz}
+Ein ordnungsgemäßes Literaturverzeichnis ist ein wesentliches Kriterium für die Bewertung
+Ihrer Arbeit.
+
+\subsection{Was wird aufgelistet?}
+Das Literaturverzeichnis listet alle zugrunde gelegten Quellen auf,
+auf die {\em im Text Bezug genommen wurde}. Ein Eintrag im
+Literaturverzeichnis, auf den im Text nicht Bezug genommen wird, ist
+aus dem Literaturverzeichnis zu {\em entfernen}.
+
+Mindestens 50\% der im Literaturverzeichnis aufgelisteten Quellen
+müssen von einem Verlag veröffentlicht sein. D. h. ein
+Literaturverzeichnis, das z.~B. nur aus Internetquellen ohne
+Verlagszuordnung besteht, ist nicht zulässig. 
+
+Ebenso wie Fachbücher und Fachzeitschriften müssen Internetquellen bestimmte Qualitätskriterien erfüllen. Informieren Sie sich diesbezüglich in den verfügbaren Ratgebern zum wissenschaftlichen Arbeiten (wie z.~B.~\cite{Balzert}). Die nachfolgende Aufzählung soll Ihrer
+Orientierung dienen. Sie kann nicht vollständig sein und wird im
+Zeitverlauf erweitert und ak
+tualisiert. Zudem wird es immer ``Grenzfälle'' bezüglich der
+Verwendbarkeit einer Quelle geben. Orientieren Sie sich in diesen
+Fällen an wissenschaftlichen Qualitätskriterien, wie Objektivität,
+Überprüfbarkeit, Nachvollziehbarkeit, Reliabilität usw.
+
+Als Quellen {\em verwendbar} sind z.~B.
+\begin{itemize}
+\item Online-Lexika von renommierten Fachverlagen oder Hochschulen,
+  wie z.~B.
+  \begin{itemize}
+  \item die ``Enzyklopädie der Wirtschaftsinformatik'' vom Oldenbourg Wissenschaftsverlag, \url{http://www.enzyklopaedie-der-wirtschaftsinformatik.de/wi-enzyklopaedie/lexikon} oder
+  \item  das ``Gabler Wirtschaftslexikon'',
+    \url{http://wirtschaftslexikon.gabler.de/},
+  \end{itemize}
+\item Online-Publikationen von öffentlichen Institutionen und
+  renommierten Verbänden, wie z.~B.
+  \begin{itemize}
+  \item vom Bundesverband Informationswirtschaft, Telekommunikation und neue Medien e.V. (BITKOM), \url{http://www.bitkom.org/de/publikationen/1357.aspx} oder
+  \item von der Internet Engineering Task Force (IETF),
+    \url{http://www.ietf.org/index.html},
+  \end{itemize}
+\item  Online verfügbare Informationen zu Produkten/Dienstleistungen,
+  solange diese prüfbar sind bzw. keinen primär werblichen Charakter
+  aufweisen, wie z.~B. Datenblätter zu elektronischen Bauteilen. 
+\end{itemize}
+{\em Sehr sparsam einzusetzen} sind z.~B.
+\begin{itemize}
+\item Wikipedia (Einsatz als Belegquelle ist äußerst umstritten)
+\item Renommierte Tages- bzw. Wochenzeitschriften (``Frankfurter
+  Allgemeine Zeitung'', ``Der Spiegel'', ``Die Zeit''): Nur wenn ein
+  tagesaktueller Bezug benötigt wird bzw. wenn die Informationen über Fachbücher/-zeitschriften nicht verfügbar sind.
+\item Fachzeitschriften, deren Beiträge keiner Qualitätskontrolle
+  (``Review'') im wissenschaftlichen Sinn unterliegen, wie
+  z.~B. ``c't'', ``ix'', ``Linux-Magazin'', ... Nur wenn die entsprechenden Informationen anderweitig nicht verfügbar sind.
+\item ``Studien'' und ``Whitepapers'' von Herstellern und
+  Dienstleistern (sind meist von geringer Objektivität).
+\end{itemize}
+{\em Nicht geeignet} sind z.~B. Online-Publikationen oder Webseiten-Textauszüge von
+\begin{itemize}
+\item Publikumszeitschriften (``Stern'', ``Bunte'')
+\item Pseudowissenschaftlichen Zeitschriften (``Computerwoche'',
+  ``Computer Bild'')
+\end{itemize}
+
+
+\subsection{}
+\subsection{Allgemeine Regeln für das gesamte Literaturverzeichnis}
+\begin{itemize}
+\item {\em Alphabetische} Sortierung {\em nach dem Kürzel} aller Quellen
+\item {\em keine} Aufteilung/Sortierung nach der Art der Quellen
+  (\gls{Monographie}n, Fachbüchern, Fachzeitschriften,
+  Internetquellen etc.)
+\item Angaben zur Bezeichnung von Quellen im Literaturverzeichnis sind den Quellen
+  selbst zu entnehmen. Im Zweifelsfall sind bei deutschsprachigen Werken die Eintra-
+  gungen~\cite{katalog}, bei englischsprachigen Werken die Eintragungen~\cite{catalog} hilfreich bzw. maßgeblich.
+\item die Formatierung eines Eintrags erfolgt mit Hilfe der Formatvorlage ``LitVerz''.
+\end{itemize}
+In diesem Kapitel fehlen noch einige Abschnitte. 
+Diesen Abschnitt bitte in der MS-Word-Vorlage nachschlagen.
+
+\newpage
+\chapter{Inhaltliche Richtlinien}
+\label{sec:inhalt}
+Das folgende Kapitel beschreibt den inhatlichen Aufbau Ihrer Arbeit.
+\section{Allgemeine Hinweise}{ \color{red}\bfseries Auch hier gilt:
+  Bindend und umfassend sind die Vorgaben Hinweise in der MS-Word-Vorlage.}
+\begin{itemize}
+\item  Der Praxisbericht muss Ihre Tätigkeiten im Praxissemester {\em technologisch} und nicht
+  chronologisch schildern. D.h. Sie beschreiben Ihre Aufgaben aus technischer Sicht
+  und können dabei eigene Schwerpunkte setzen.
+\item Praxisbericht {\em nicht} in {\em ``Ich''-Form} schreiben
+\item {\em Gute} Beispiele und Graphiken zur Erläuterung des technischen Sachverhalts sind
+  zwingend erforderlich.
+\item Fotographien und Screenshots sollten nur in angemessenem Umfang
+  vorhanden sein.
+\end{itemize}
+
+\section{Gliederung der Arbeit}{ \color{red}\bfseries Nochmaliger Hinweis: Bindend und allumfassend sind die Vorgaben in der MS-Word-Vorlage.}
+
+\begin{longtable}{|p{5.3cm}|p{10cm}|}
+  \hline
+  \rowcolor{gray}
+  \bf Gliederungspunkt&\bf Kommentar\\\hline
+  \endhead %above lines will be repeated on every page
+  Titelblatt&vorgegeben s. Abschnitt~\ref{sec:titelblatt}\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  Inhaltsverzeichnis&s.~Abschnitt~\ref{sec:VerzAnhang}\\\hline
+  Verzeichnisse&s.~Abschnitt~\ref{sec:VerzAnhang}\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  \ldots&\\\hline
+  Literaturverzeichnis&s. Abschnitt~\ref{sec:litVerz}\\\hline
+  Ehrenwörtliche Erklärung&s. Anhang~\ref{sec:ehrenwort}\\\hline
+  \caption{(Generische) Gliederung des Praxisberichts}
+\end{longtable}
+
+% ===========================================================
+% == Literaturverzeichnis ===================================
+% ===========================================================
+\begin{thebibliography}{9}
+\bibitem[Balzert+2011]{Balzert}
+  Balzert, H.; Schröder, M.; Schäfer, C.; Wissenschaftliches Arbeiten,
+  2. Auflage, W3L GmbH Herdecke Witten, 2011.
+\bibitem[Boenigk 2011]{Boenigk}
+  Boenigk, N.: Die ist eine Dummy-Referenz für die Vorlage,
+  0. Auflage, W3L GmbH Herdecke Witten, 2011.
+\bibitem[Catalog 2014]{catalog}
+  Catalog Library of Congress \url{http://catalog.loc.gov/} (Zugriff 13.9.2014)
+\bibitem[Duden 2014]{duden}
+  Bibliographisches Institut Dudenverlag \url{http://www.duden.de}
+  (Zugriff 17.9.2014)
+\bibitem[Hippner 2006]{Hippner}
+  Hippner, N.: Die ist eine Dummy-Referenz für die Vorlage,
+  0. Auflage, W3L GmbH Herdecke Witten, 2011.
+\bibitem[Katalog 2014]{katalog}
+  Katalog der Deutschen Nationalbibliothek \url{https://portal.dnb.de/opac.htm}
+  (Zugriff 13.9.2014)
+\bibitem[Kories+2008]{kories}
+  Kories, R.; Schmidt-Walter, H.: Taschenbuch der Elektrotechnik, 8.
+  Aufl., Verlag Harri Deutsch, Frankfurt, 2008.
+\bibitem[Voelter 2014]{voelter}
+  Voelter, M.: DSL Engineering - Designing, Implementing and Using Do-
+  main-Specific Languages, Amazon, 2013 auch online unter
+  \url{http://dslbook.org} (Zugriff: 12.08.2014).
+
+\end{thebibliography}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+% ===========================================================
+% == Glossar ================================================
+% ===========================================================
+\newpage
+\printglossary[title=Glossar,toctitle=Glossar]
+
+% ===========================================================
+% == Hier beginnen die Anhaenge =============================
+% ===========================================================
+\appendix
+
+% ===========================================================
+% == Formatierung für Anhaenge ==============================
+% ===========================================================
+\renewcommand{\thechapter}{A \arabic{chapter}}
+\titleformat{\chapter} % command
+{\bfseries} % format
+{\fontsize{16}{18}\selectfont Anhang \thechapter .\, } % label
+{0ex} % sep
+{\fontsize{16}{18}\selectfont} % before-code
+[] % after-code
+% ===========================================================
+% ===========================================================
+% ===========================================================
+
+\chapter{\ Formate für das gesamte Dokument}
+\label{app:format}
+\begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|}
+  \hline
+  \rowcolor{gray}
+  \bf Formataspekt&\bf Vorschrift&\bf .\\\hline
+  Schriftart Text&Times New Roman&\\\hline
+  Schriftart für Codebeispiel im laufenden Text&Courier New&\\\hline
+  Codebeispiel mit Rahmen und Beschriftung (``Unterschrift'')&Courier New&\\\hline
+  Schriftgröße&12 pt&\\\hline
+  Zeilenabstand&1,5 zeilig&\\\hline
+  Abstand vor/nach Absatz&0 pt/ 6 pt&\\\hline
+  \color{red}\bfseries Nochmaliger Hinweis: Bindend und allumfassend sind die Vorgaben in der MS-Word-Vorlage&&\\\hline
+  \caption{Allgemeine Dokumentformate}
+\end{longtable}
+
+\chapter{\ Ehrenwörtliche Erklärung}
+\label{sec:ehrenwort}
+\vskip1cm
+{\bfseries\Huge \hfill Ehrenwörtliche Erklärung\hfill\ }\\[2cm]
+\noindent Ich versichere hiermit, dass ich meinen
+Praxisbericht/Bachelorarbeit/Masterarbeit mit dem Titel\\[2cm]
+\hrule\ \\[2cm]
+\hrule\ \\[2cm]
+selbständig verfasst, keine anderen
+als die angegebenen Quellen und Hilfsmittel benutzt sowie nicht an
+anderer Stelle als Prüfungsarbeit vorgelegt habe.\\[4cm]
+\makebox[2.5in]{\hrulefill} \\
+Ort \\[1.5cm]
+\makebox[2.5in]{\hrulefill} \hspace {1.0in}\makebox[2.5in]{\hrulefill} \\
+Datum \makebox[3.9in][r]{Unterschrift} \\
+
+\chapter{\ Deckblatt Praxisbericht (deutsch)}
+\begin{titlepage}
+  \centering
+  \includegraphics[width=14.9cm]{logo}\\
+  \fontsize{18}{20}\selectfont Hochschule für angewandte Wissenschaften Coburg\\[.1cm]
+  Fakultät Elektrotechnik und Informatik\\[1.2cm]%
+  Studiengang: \textless Name des Studiengangs\textgreater\\[1.2cm]
+  Praxisbericht\\
+  \fontsize{22}{24}\selectfont
+  Max Mustermann\\
+  \ \\
+  \ \\
+  \fontsize{12}{14}\selectfont
+  \begin{tabularx}{.99\linewidth}{|l|X|}
+    \hline
+    Unternehmen&\textless Firma\textgreater\\
+    &\textless Abteilung\textgreater\\
+    &\textless Stra{\ss}e\textgreater\\
+    &\textless PLZ Ort\textgreater\\\hline
+    Zeitraum&\textless DD.MM.YYYY\textgreater bis \textless DD.MM.YYYY\textgreater\\\hline
+  \end{tabularx}\\\ \\
+  \fontsize{16}{24}\selectfont
+
+
+  Abgabe des Berichts: \textless DD. Monat YYYY\textgreater\\
+
+
+  Freigabe zur Vorlage des Praxisberichts an der HS Coburg:\\
+  \fontsize{12}{18}\selectfont
+  \begin{tabularx}{.98\linewidth}{|l|X|l|}
+    \hline
+    BetreuerIn&&\\\hline
+    Funktion&&\raisebox{.25cm}{\bfseries\em Ort, Datum}\\\hline
+    Telefon&&\multirow{2}*{\ }\\\cline{1-2}
+    E-Mail&&\\\hline
+    &&\raisebox{.25cm}{\bfseries\em Unterschrift BetreuerIn\hspace{2cm}}\\\hline
+  \end{tabularx}\\\ \\
+\end{titlepage}
+
+\chapter{\ Deckblatt Praxisbericht (englisch)}
+\textless wird noch erstellt\textgreater
+
+\chapter{\ Deckblatt Bachelor/Masterarbeit}
+\begin{titlepage}
+  \centering
+  \includegraphics[width=14.9cm]{logo}\\
+  \fontsize{18}{20}\selectfont Hochschule für angewandte Wissenschaften Coburg\\[.1cm]
+  Fakultät Elektrotechnik und Informatik\\[.8cm]%
+  Studiengang: \textless Name des Studiengangs\textgreater\\[.8cm]
+  \textless Bachelorarbeit od. Masterarbeit\textgreater\\[1cm]
+  
+  \textls[35]% Increased letter spacing
+  { \fontsize{22}{40}\selectfont\bfseries -- Titel der eigenen Arbeit ein
+    oder\\[0.4cm]%
+    maximal drei Zeilen --}\\[1.5cm]
+  \fontsize{22}{40}\selectfont
+  Max Mustermann\\
+  \ \\
+  \ \\
+  \fontsize{16}{18}\selectfont
+  Abgabe der Arbeit: DD. Monat YYYY\\
+  Betreut durch:\\
+  \textless Prof. Dr. \textless vorname\textgreater\ \textless
+  nachname\textgreater, Hochschule Coburg\textgreater\\
+  \textless optional: Zweitgutachter: Prof. Dr. XXX, Hochschule Coburg\textgreater
+\end{titlepage}
+
+
+\newpage
+\begin{itemize}
+\item PraxTit deu
+\end{itemize}
+
+\end{document}
+

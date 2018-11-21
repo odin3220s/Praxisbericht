@@ -1,0 +1,147 @@
+% ===========================================================
+% ===========================================================
+% == LaTeX-Vorlage fuer Praxisbericht Fak. EIT HS Coburg ====
+% ===========================================================
+% ===========================================================
+% ===========================================================
+% ===========================================================
+\documentclass[a4paper,12pt,onesided]{report}
+
+% ===========================================================
+% == Definitionen fuer die Formatierung =====================
+% == aus anderer Datei einbinende ===========================
+% ===========================================================
+\input{richtlinien_Praxisbericht_macros.tex}
+
+% ===========================================================
+% == Definitionen fuers Glossar muessen vor Dokumentbeginn ==
+% ===========================================================
+
+
+
+% ===========================================================
+% == Hier beginnt alles was im Dokument erscheint ===========
+% ===========================================================
+\begin{document}
+
+% ===========================================================
+% == Titelseite =============================================
+% ===========================================================
+\begin{titlepage}
+  \centering
+  \includegraphics[width=14.9cm]{logo}\\
+  \fontsize{18}{20}\selectfont Hochschule f\"ur angewandte Wissenschaften Coburg\\[.1cm]
+  Fakult\"at Elektrotechnik und Informatik\\[1.2cm]%
+  Studiengang: Informatik\\[1.2cm]
+  Praxisbericht\\
+  \fontsize{22}{24}\selectfont
+  Jannick Schopf\\
+  \ \\
+  \ \\
+  \fontsize{12}{14}\selectfont
+  \begin{tabularx}{.99\linewidth}{|l|X|}
+    \hline
+    Unternehmen&Fraunhofer IIS\\
+    &Anwendungszentrum\\
+    &Sonntagsanger 1\\
+    &96450, Coburg\\\hline
+    Zeitraum&03.09.2018 bis 27.01.2019\\\hline
+  \end{tabularx}\\\ \\
+  \fontsize{16}{24}\selectfont
+
+
+  Abgabe des Berichts: \today\\%Hier muss ich noch das genaue Datum für die Abgabe raussuchen
+
+
+  Freigabe zur Vorlage des Praxisberichts an der HS Coburg:\\
+  \fontsize{12}{18}\selectfont
+  \begin{tabularx}{.98\linewidth}{|l|X|l|}
+    \hline
+    BetreuerIn&&\\\hline
+    Funktion&&\raisebox{.25cm}{\bfseries\em Ort, Datum}\\\hline
+    Telefon&&\multirow{2}*{\ }\\\cline{1-2}
+    E-Mail&&\\\hline
+    &&\raisebox{.25cm}{\bfseries\em Unterschrift BetreuerIn\hspace{2cm}}\\\hline
+  \end{tabularx}\\\ \\
+\end{titlepage}
+
+%================Inhaltsverzeichnis====================
+{
+\setlength{\cftbeforechapskip}{-.5ex}
+\tableofcontents
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+}
+% ===========================================================
+% == Abbildungsverzeichnis ==================================
+% ===========================================================
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+% ===========================================================
+% == Tabellenverzeichnis ====================================
+% ===========================================================
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+% ===========================================================
+% == Codeverzeichnis ========================================
+% ===========================================================
+\newpage
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Codebeispielverzeichnis}
+% ===========================================================
+% == Abkuerzungsverzeichnis =================================
+% ===========================================================
+\newpage
+\section*{Abk\"urzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abk\"urzungsverzeichnis}
+\begin{tabular}{ll}
+  AJAX& Asynchronous-JavaScript-and-XML\\
+  API& Application Programming Interface\\
+  CSS& Cascading Style Sheets\\
+  AWZ& Fraunhofer-Anwendungszentrum f\"ur Drahtlose Sensorik in Coburg\\
+  IIS& Fraunhofer-Institut f\"ur Integrierte Schaltungen\\
+  SPA& Single-Page-Application\\
+  HTML& Hyper Text Markup Language\\
+  o. V.& ohne Verfasser\\
+  \ldots& \ldots
+\end{tabular}
+
+\newpage
+\chapter{Einleitung}
+Dieser Praxisbericht ist w\"ahrend eines Praktikums beim Fraunhofer-Institut f\"ur integrierte Schaltungen
+am Anwendungszentrum f\"ur Drahtlose Sensorik in Coburg entstanden.
+
+\section{Vorstellung des Kontextes der Arbeit}
+Das Fraunhofer-Institut f\"ur Integrierte Schaltungen IIS ist eine weltweit f\"uhrende anwendungsorientierte
+Forschungseinrichtung f\"ur mikroelektronische und informationstechnische
+Systeml\"osungen und Dienstleistungen. 
+Es ist heute das gr\"o"ste Institut der Fraunhofer-Gesellschaft. Gegr\"undet wurde das Institut 1985 mit dem Hauptsitz in Erlangen. Heute
+sind "uber 900 Mitarbeiter in der Vertragsforschung f\"ur die Industrie, Dienstleistungsunternehmen, 
+sowie \"offentliche Einrichtungen t\"atig. Die Forschung orientiert sich an den beiden Leitthemen Audio und Medientechnologie sowie Kognitive Sensorik \cite{briele}.\\
+
+Das Fraunhofer-Anwendungszentrum Drahtlose Sensorik Coburg ist Teil des Bereichs f\"ur
+Lokalisierung und Vernetzung und wurde 2012 mit Unterst\"utzung des Freistaates Bayern
+und in Zusammenarbeit zwischen dem Fraunhofer-Institut f\"ur Integrierte Schaltungen
+IIS und der Hochschule Coburg gegr\"undet. Am Anwendungszentrum werden kundenspezifische
+Sensornetzl\"osungen f\"ur den industriellen Einsatz in den Bereichen Produktion,
+Bauwesen, Gesundheit und Landwirtschaft entwickelt. Dabei erlaubt die Kooperation zwischen
+dem Fraunhofer IIS und der Hochschule Coburg die Unterst\"utzung der Wirtschaft
+durch Beratung, Durchf\"uhrung von F\&E-Projekten, Lizensierung von Schutzrechten und
+Technoligekomponenten sowie dem Bau von produktnahen Prototypen \cite{wieland}.\\
+% ===========================================================
+% == Literaturverzeichnis ===================================
+% ===========================================================
+\begin{thebibliography}{9}
+\bibitem[Bri 2009]{briele}
+  Briele, M.: Das Fraunhofer IIS, \url{https://www.iis.fraunhofer.de/de/profil.html} 
+  (Zugriff: 18.11.2018).
+\bibitem[Wie 2018]{wieland}
+  Wieland, T.: Fraunhofer Anwendungszentrum Drahtlose Sensorik, \url{https://www.iis.fraunhofer.de/de/profil/orga/awz/awzcoburg.html}
+  (Zugriff: 21.11.2018).
+\end{thebibliography}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+\end{document}
